@@ -188,11 +188,8 @@ define(function () {
 			iterator = iterators[adviceType];
 
 			iterator(this.aspects[adviceType], function(aspect) {
-				// error in removing action (@designeng)
-				if(typeof(aspect) != "undefined"){
-					var advice = aspect.advice;
-					advice && advice.apply(context, args);
-				}				
+				var advice = aspect.advice;
+				advice && advice.apply(context, args);
 			});
 		},
 

@@ -3,9 +3,8 @@ define ["underscore"
         "vent"
         "when"
         "moduleHash"
-        "hbs!templates/core/modules/page/pageLayoutTpl"
         "core/ioc/startComponentInRegion"        
-        ], (_, Marionette, vent, When, moduleHash, pageLayoutTpl, startComponentInRegion) ->
+        ], (_, Marionette, vent, When, moduleHash, startComponentInRegion) ->
 
     # ModuleWrapperViewModel
 
@@ -27,7 +26,6 @@ define ["underscore"
             promise = startComponentInRegion.call(@, @name, new Backbone.Marionette.Region({el: @$el}))
 
             success = (moduleObject) ->
-                console.log ">>>>>>", moduleObject, @name
                 moduleHash.addModule moduleObject
 
             reject = (name) ->
@@ -93,7 +91,7 @@ define ["underscore"
 
     return Marionette.Layout.extend
 
-        template: pageLayoutTpl
+        template: ""
 
         className: "pageLayout"
 

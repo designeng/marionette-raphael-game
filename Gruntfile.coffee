@@ -6,7 +6,7 @@ module.exports = (grunt) ->
     grunt.initConfig
         watch:
             coffee_app:
-                files: ['app/coffee/**/**.coffee']
+                files: ['app/coffee/**/**.coffee', 'app/coffee/**/**/**.coffee', 'app/coffee/**/**/**/**.coffee']
                 tasks: ["coffee-compile-app"]
             coffee_tests:
                 files: ['tests/coffee/**/**.coffee']
@@ -20,22 +20,11 @@ module.exports = (grunt) ->
             #     options:
             #         livereload: 9000
             js:
-                files: ['mocha-tests/js/**/**.js']
+                files: ['app/js/**/**.js', 'mocha-tests/js/**/**.js']
                 options:
                     livereload: true
 
         coffee:
-            tests:
-                options: {
-                    bare: true
-                }
-                files: [
-                    expand: true,
-                    cwd: 'tests/coffee',
-                    src: ['**/*.coffee'],
-                    dest: 'tests/js',
-                    ext: '.js'
-                ]
             mocha_tests:
                 options: {
                     bare: true
@@ -86,7 +75,7 @@ module.exports = (grunt) ->
 
                 reporter: 'Nyan'
 
-                urls: ['http://localhost:' + port + '/mocha-tests/test2.html'],
+                urls: ['http://localhost:' + port + '/mocha-tests/index.html'],
 
                 run: true
 
@@ -106,34 +95,14 @@ module.exports = (grunt) ->
                     optimize: "none"
                     mainConfigFile: 'app/js/requireConfig.js'
                     findNestedDependencies: true
-                    # onBuildWrite: (moduleName, path, contents) ->
-                    #     console.log path
-                        # console.log "----------------------------"
-                        # console.log moduleName, path, contents
-                        # return contents.replace(/world/g, 'WORLD')
-
-        "requirejs-bundle":
-            # src: 'app/js/controls'
-            # dest: 'tmp/controls.js'
-            # options:
-            #     moduleName: 'my-controls'
-            #     baseUrl: 'app/js'
-            src: 'components'
-            dest: '_controls.js'
-            options:
-                moduleName: 'my-controls'
-                baseUrl: './'
-
 
     grunt.loadNpmTasks "grunt-contrib-watch"
     grunt.loadNpmTasks "grunt-contrib-coffee"
     grunt.loadNpmTasks "grunt-contrib-connect"
-    grunt.loadNpmTasks "grunt-exec"
     grunt.loadNpmTasks "grunt-newer"
     grunt.loadNpmTasks "grunt-insert"
     grunt.loadNpmTasks "grunt-mocha"
     grunt.loadNpmTasks "grunt-contrib-requirejs"
-    grunt.loadNpmTasks "grunt-requirejs-bundle"
 
     grunt.registerTask "default", ["connect:server", "watch"]
 
@@ -143,9 +112,7 @@ module.exports = (grunt) ->
     grunt.registerTask "coffee-compile-app", ["newer:coffee:app"]
     grunt.registerTask "start-tests", ["exec:start_tests"]
     grunt.registerTask "server", ["connect"]
+    grunt.registerTask "compile", ["coffee:app", "default"]
     grunt.registerTask "inc", ["insert", "coffee-compile-tests", "default"]
     
-    grunt.registerTask "bundle", ["requirejs-bundle"]
     grunt.registerTask "r", ["requirejs"]
-
-    grunt.registerTask 'testUrls', ['connect:testUrls', 'mocha:testUrls', 'watch']

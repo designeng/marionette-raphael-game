@@ -1088,7 +1088,7 @@ Marionette.CollectionView = Marionette.View.extend({
   // a collection of item views, when the collection is
   // empty
   showEmptyView: function(){
-    var EmptyView = this.getEmptyView();
+    var EmptyView = Marionette.getOption(this, "emptyView");
 
     if (EmptyView && !this._showingEmptyView){
       this._showingEmptyView = true;
@@ -1105,11 +1105,6 @@ Marionette.CollectionView = Marionette.View.extend({
       this.closeChildren();
       delete this._showingEmptyView;
     }
-  },
-
-  // Retrieve the empty view type
-  getEmptyView: function(){
-    return Marionette.getOption(this, "emptyView");
   },
 
   // Retrieve the itemView type, either from `this.options.itemView`

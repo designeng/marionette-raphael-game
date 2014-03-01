@@ -18,6 +18,7 @@ require.config
         "moment"                        : "vendors/moment"
         "backbone"                      : "vendors/backbone"
         "backbone.eventbinder"          : "vendors/backbone.eventbinder"
+        "backbone.raphael"              : "vendors/backbone.raphael"
         "backbone.babysitter"           : "vendors/backbone.babysitter"
         "marionette"                    : "vendors/backbone.marionette"
         "backbone.wreqr"                : "vendors/backbone.wreqr"
@@ -110,100 +111,19 @@ require.config
 
         "getLocale"                 : "core/utils/config/getCurrentLocale"
 
-        # header module assets
 
-        "headerLayout"              : "modules/header/headerLayout"
-        "navigationCompositeView"   : "modules/header/navigation/navigationCompositeView"
+        # modules
 
-        # content module
-
-        "contentModule"             : "modules/content/contentModule"
-        "contentController"         : "modules/content/contentController"
-
-        # footerModule
-        # "footerModule"             : "modules/footer/footerModule"
-        # "footerController"         : "modules/footer/footerController"
-
-        "footerInner"               : "modules/footerInner/footerInnerController"
-
-        # debug module
-
-        "debugModule" : "modules/debug/debugModule"
-
-        # debugConsole module
-        "debugConsoleModule" : "modules/debugConsole/debugConsoleModule"
-
-        # controls entities
-
-        "buttonModel"           : "controls/button/model/buttonModel"
-        "inputTextModel"        : "controls/inputText/model/inputTextModel"
-        "hintModel"             : "controls/hint/model/hintModel"
-        "dropDownListModel"     : "controls/dropdownlist/model/dropDownListModel"
-        "boxModel"              : "controls/box/model/boxModel"
-
-        "comboboxListCollection": "controls/combobox/collection/comboboxListCollection"
+        "gameWrapper" : "modules/gameWrapper/gameWrapperController"
+        "game"        : "modules/game/gameController"
 
         # controls
 
-        "linkControl"           : "controls/link/linkControl"
-        "textControl"           : "controls/text/textControl"
-        "boxControl"            : "controls/box/boxControl"
-        "buttonControl"         : "controls/button/buttonControl"
-        "switchControl"         : "controls/switch/switchControl"
-        "inputTextControl"      : "controls/inputText/inputTextControl"
-        "comboboxControl"       : "controls/combobox/comboboxControl"
-        "checkboxControl"       : "controls/checkbox/checkboxControl"
-        "navigationBarControl"  : "controls/navigationbar/navigationBarControl"
-        "hintControl"           : "controls/hint/hintControl"
-        "dropDownListControl"   : "controls/dropdownlist/dropDownListControl"
-        "flightPointControl"    : "controls/flightpoint/flightPointControl"
-        "inputError"            : "controls/error/inputError"
-        "tableControl"          : "controls/table/tableControl"
-        "popupControl"          : "controls/popup/popupControl"
-        "infoControl"           : "controls/info/infoControl"
-
-        "preloader"             : "controls/preloader/preloaderControl"
-
-        "navIcon"               : "controls/navIcon/navIconControl"
-        "simpleTplControl"      : "controls/simpleTpl/simpleTplControl"
-        "footerBar"             : "controls/footerBar/footerBarControl"
-        "linkFooterNavControl"  : "controls/link/linkFooterNavControl"
-
-        "flightSearchHistoryModule"     : "modules/flightSearchHistory/flightSearchHistoryModule"
-        "flightSearchHistoryController" : "modules/flightSearchHistory/flightSearchHistoryController"
-        "flightSearchHistoryBarControl" : "controls/flightSearchHistoryBar/flightSearchHistoryBarControl"
-        "linkFavoriteSearchControl"     : "controls/link/linkFavoriteSearchControl"
-
-        "flightSearchHeader"     : "modules/flightSearchHeader/flightSearchHeaderController"
-
-        # filters
-        "filterListButton"              : "controls/filter/filterListButton"
-        "filterButton"                  : "controls/filter/filterButton"
-        "filterBaseMediator"            : "controls/filter/mediator/base"
-        # filter types
-        "filterPopupSimply"             : "controls/filter/type/filterPopupSimply"
-        "filterPopupSimplyContent"      : "modules/filterPopupSimplyContent/filterPopupSimplyContentController"
-        "filterPopupList"               : "controls/filter/type/filterPopupList"
-        "filterPopupListContent"        : "modules/filterPopupListContent/filterPopupListContentController"
+        "startGameControl"   : "controls/startGame/startGameControl"
+        "boardControl"   : "controls/board/boardControl"
+        "gameControl"        : "controls/game/gameControl"
 
 
-        "header"                      : "modules/header/headerController"
-        "flightStats"                 : "modules/flightStats/flightStatsController"
-        "flightStatsResult"           : "modules/flightStatsResult/flightStatsResultController"
-        "flightSearchHistory"         : "modules/flightSearchHistory/flightSearchHistoryController"
-
-        "footer"                      : "modules/footer/footerController"
-
-        "content"                     : "modules/content/contentController"
-        "popupDev"                    : "modules/popupDev/popupDevController"
-        "popupDevContent"             : "modules/popupDevContent/popupDevContentController"
-        "sortedTableFilter"           : "modules/sortedTableFilter/sortedTableFilterController"
-        "sortedTableFilterContent"    : "modules/sortedTableFilterContent/sortedTableFilterContentController"
-
-        "sortedTable"                 : "modules/sortedTable/sortedTableController"
-        
-        "debug"                       : "modules/debug/debugController"
-        "specReport"                  : "modules/specReport/specReportController"
 
     shim:
         marionette: ["backbone"]
@@ -224,6 +144,8 @@ require.config
         "backbone.wreqr":
             deps: ["backbone"]
         "backbone.babysitter":
+            deps: ["backbone"]
+        "backbone.raphael":
             deps: ["backbone"]
         "jquery.ScrollTo":
             deps: ['jquery']

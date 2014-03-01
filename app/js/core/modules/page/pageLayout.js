@@ -1,4 +1,4 @@
-define(["underscore", "marionette", "vent", "when", "moduleHash", "hbs!templates/core/modules/page/pageLayoutTpl", "core/ioc/startComponentInRegion"], function(_, Marionette, vent, When, moduleHash, pageLayoutTpl, startComponentInRegion) {
+define(["underscore", "marionette", "vent", "when", "moduleHash", "core/ioc/startComponentInRegion"], function(_, Marionette, vent, When, moduleHash, startComponentInRegion) {
   var ModuleWrapperView, ModuleWrapperViewModel, RegionCollectionView;
   ModuleWrapperViewModel = Backbone.Model.extend({
     initialize: function(options) {
@@ -15,7 +15,6 @@ define(["underscore", "marionette", "vent", "when", "moduleHash", "hbs!templates
         el: this.$el
       }));
       success = function(moduleObject) {
-        console.log(">>>>>>", moduleObject, this.name);
         return moduleHash.addModule(moduleObject);
       };
       reject = function(name) {
@@ -96,7 +95,7 @@ define(["underscore", "marionette", "vent", "when", "moduleHash", "hbs!templates
     }
   });
   return Marionette.Layout.extend({
-    template: pageLayoutTpl,
+    template: "",
     className: "pageLayout",
     regions: {},
     initialize: function(options) {
