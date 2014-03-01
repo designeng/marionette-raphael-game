@@ -1,0 +1,50 @@
+<td class='icon {{#equal status "cancelled" }} cancelled{{/equal}}'>
+    {{#if marketingCompanyLogo}}
+        <img src='data:image/gif;base64,{{marketingCompanyLogo}}' alt='{{marketingCompanyName}}' title='{{marketingCompanyName}}'/>
+    {{else}}
+        {{marketingCompanyName}}
+    {{/if}}
+</td>
+<td class='from {{#equal status "cancelled" }} cancelled{{/equal}}'>
+    <span class="dateText">
+        {{formatDate.planDepTime}}
+        {{#unless formatDate.planActDepSameTime }}
+            <span class="dateText change">({{formatDate.actArrTime}})</span>
+        {{/unless}}
+    </span>
+    <span class='decorLeft'></span>
+    <span class="infoText">
+        <span class="infoText__airport" >{{airportDepartureName}}</span>
+        <span class="infoText__gate" >Терминал {{originTerminal}}, {{originGate}}</span>
+    </span>
+</td>
+<td class='to {{#equal status "cancelled" }} cancelled{{/equal}}'>
+    <span class="dateText">
+        {{#unless formatDate.planActArrSameTime }}
+            <span class="dateText change">
+                {{#if formatDate.dayAfterArrDate }}
+                    <span class="dateText nextDay">след.дня</span>
+                {{/if}}
+                ({{formatDate.actArrTime}})
+            </span>
+        {{/unless}}
+        {{formatDate.planArrTime}}
+    </span>
+    <span class='decorRight'></span>
+    <span class="infoText">
+        <span class="infoText__airport" >{{airportArrivalName}}</span>
+        <span class="infoText__gate" >Терминал {{destinationTerminal}}, {{destinationGate}}</span>
+    </span>
+</td>
+<td class='flight {{#equal status "cancelled" }} cancelled{{/equal}}'>
+    {{code}} {{flightNumber}} / {{mergedFlightsCode}} {{mergedFlightsFlightNumber}}
+    <div class='vehicleName'>{{ actualVehicleName }}</div>
+</td>
+<td class='state
+    {{#equal status "landed" }} landed{{/equal}}            
+    {{#equal status "cancelled" }} cancelled{{/equal}}       
+    {{#equal status "diverted" }} diverted{{/equal}}         
+    {{#equal status "active" }} active{{/equal}}             
+    {{#equal status "unknown" }} unknown{{/equal}}'>
+    {{ locStatus }}
+</td>

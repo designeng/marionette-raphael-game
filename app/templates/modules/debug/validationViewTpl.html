@@ -1,0 +1,31 @@
+<form class="form-horizontal">
+         <div class="alert alert-error" style="display:none">
+            <strong>Ooops!</strong> You did not pass the validation.
+          </div>
+          <div class="alert alert-success" style="display:none">
+            <strong>Success!</strong> You passed the validation.
+          </div>
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="firstName">First Name</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge" id="firstName" name="firstName" data-error-style="inline" value="{{firstName}}">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="lastName">Last Name</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge" id="lastName" name="lastName" data-error-style="inline" value="{{lastName}}">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="email">Email</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge" id="email" name="email" data-error-style="inline">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submit">Save changes</button>
+          </div>
+        </fieldset>
+      </form>

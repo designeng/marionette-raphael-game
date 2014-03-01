@@ -1,0 +1,6 @@
+[submodule "mocha-tests/js/lib/wire"]
+	path = mocha-tests/js/lib/wire
+	url = https://github.com/cujojs/wire
+[submodule "app/js/vendors/when/when"]
+	path = app/js/vendors/when/when
+	url = https://github.com/cujojs/when

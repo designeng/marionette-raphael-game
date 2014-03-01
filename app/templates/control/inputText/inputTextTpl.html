@@ -1,0 +1,21 @@
+<label for="{{name}}"
+    {{#if disabled}}
+        {{#if disabledLabelClassName}}
+            class="{{disabledLabelClassName}}"
+        {{/if}}
+    {{/if}}
+>{{label}}</label>
+
+<input 
+    type="text" 
+    {{#if name}}
+        name="{{name}}" 
+    {{/if}}
+    {{#if autoComplete}}
+        autocomplete="{{autoComplete}}" 
+    {{/if}}
+    class="{{inputClassName}} {{#if disabled}}{{#if disabledInputClassName}}{{disabledInputClassName}}{{/if}}{{/if}}" 
+/>
+
+<div class="hintWrapper"></div>
+<div class="inputErrorWrapper"></div>
